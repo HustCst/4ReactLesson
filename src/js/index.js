@@ -157,79 +157,79 @@ import ReactDom from 'react-dom';
 // // }
 // // Cst组件接受外部数据 arr = {arr1}等形式  
 
-// var App = React.createClass({
-//     render: function () {
-//         return (
-//             <div>            
-//                 <Cst arr={arr} />
-//                 <Cst arr={arr2} />
-//             </div>
-//         )
-//     }
-// })
+var App = React.createClass({
+    render: function () {
+        return (
+            <div>            
+                <Cst arr={arr} />
+                <Cst arr={arr2} />
+            </div>
+        )
+    }
+})
 
-// Mask
+Mask
 
-// var Mask = React.createClass({
-//     render: function () {
-//         var styles = {
-//             position: 'absolute',
-//             left: 0,
-//             right: 0,
-//             bottom: 0,
-//             top: 0,
-//             background: 'black',
-//             opacity: 0.5
-//         }
-//         return (
-//             <div style={styles}>
-//                 {this.props.children}
-//             </div>
-//         )   
-//     }
-// });
+var Mask = React.createClass({
+    render: function () {
+        var styles = {
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            top: 0,
+            background: 'black',
+            opacity: 0.5
+        }
+        return (
+            <div style={styles}>
+                {this.props.children}
+            </div>
+        )   
+    }
+});
 
-// var Dialog = React.createClass({
-//     render: function () {
-//         var styles = {
-//             position: 'absolute',
-//             width: '100%',
-//             height: 200,
-//             background: 'orange',
-//             fontSize: 20,
-//             lineHeight: 200,
-//             textAlign: 'center',
-//             color: 'white'
-//         }
-//         if (this.props.show) {
-//             styles.display = 'block';
-//         }else {
-//             styles.display = 'none';
-//         }
-//         return (
-//             <div onClick={this.props.onClick}>
-//                 <Mask>
-//                     <div style={styles}>{this.props.name}</div>
-//                 </Mask>
-//             </div>
-//         )
-//     }
-// });
-// var App = React.createClass({
-//     getInitialState: function () {
-//         return {
-//             show: true,
-//         }
-//     },
-//     onHandleClick: function () {
-//         this.setState({show: false});
-//     },
-//     render: function () {
-//         return (
-//             <div>
-//                 <Dialog name={this.props.name} show={this.state.show} onClick={this.onHandleClick}/>
-//             </div>
-//         )
-//     }
-// }) 
-// ReactDom.render(<App name='cst'/>, document.getElementById('root'));
+var Dialog = React.createClass({
+    render: function () {
+        var styles = {
+            position: 'absolute',
+            width: '100%',
+            height: 200,
+            background: 'orange',
+            fontSize: 20,
+            lineHeight: '200px',
+            textAlign: 'center',
+            color: 'white'
+        }
+        if (this.props.show) {
+            styles.display = 'block';
+        }else {
+            styles.display = 'none';
+        }
+        return (
+            <div onClick={this.props.onClick}>
+                <Mask>
+                    <div style={styles}>{this.props.name}</div>
+                </Mask>
+            </div>
+        )
+    }
+});
+var App = React.createClass({
+    getInitialState: function () {
+        return {
+            show: true,
+        }
+    },
+    onHandleClick: function () {
+        this.setState({show: false});
+    },
+    render: function () {
+        return (
+            <div>
+                <Dialog name={this.props.name} show={this.state.show} onClick={this.onHandleClick}/>
+            </div>
+        )
+    }
+}) 
+ReactDom.render(<App name='cst'/>, document.getElementById('root'));
